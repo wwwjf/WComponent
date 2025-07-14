@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="button_base_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_unabled_4d243f5e_enabled_3b55e6_c4dp
+        </item>
+        <item name="elevation">@dimen/dp_8</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">@dimen/dp_14</item>
+        <item name="android:paddingBottom">@dimen/dp_14</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+</resources>

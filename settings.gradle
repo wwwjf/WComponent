@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+rootProject.name = "WComponent"
+include ':app'
+include ':lib_common'
+include ':lib_common:common'
+include ':lib_common:lib_permission'
+include ':lib_common:lib_dialog'
+include ':lib_common:lib_customview'
+
+include ':lib_network_retrofit'
+include ':lib_network_retrofit_rxjava'
+include ':lib_network_retrofit_rxjava_two'
+
+include ':module_base_router'
+include ':module_base_mvp'
+
+include ':module_business_mvp'
+
+include ':module_login'
+include ':module_setting'
+include ':module_setting:export_setting'
+include ':module_mine'
+include ':module_splash'
+include ':module_base_mvvm'

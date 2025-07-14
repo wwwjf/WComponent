@@ -1,0 +1,80 @@
+if (rootProject.ext.isModuleDebug){
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace 'com.setting'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+//        resourcePrefix "setting_"
+
+        if (rootProject.ext.isModuleDebug){
+            applicationId "com.setting"
+        }
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        buildConfigField("boolean", "isModuleDebug", String.valueOf(rootProject.ext.isModuleDebug))
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME: project.getName() ]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+        dataBinding true
+    }
+
+    sourceSets {
+        main {
+            if (rootProject.ext.isModuleDebug){
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude 'module/**'	//移除module文件夹下的资源,即 debug/AndroidManifest.xml
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':module_base_router')
+    implementation project(':lib_common')
+    implementation project('export_setting')
+    implementation project(':lib_network_retrofit')
+    implementation project(':module_business_mvp')
+
+
+    annotationProcessor rootProject.ext.depsLibs.arouterCompiler
+    implementation rootProject.ext.depsLibs.rxandroid
+    implementation rootProject.ext.depsLibs.rxjava3
+
+}

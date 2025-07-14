@@ -1,0 +1,100 @@
+if (rootProject.ext.isModuleDebug) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
+apply plugin: 'kotlin-kapt'
+
+android {
+    namespace 'com.login'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+//        resourcePrefix "login_"
+
+        if (rootProject.ext.isModuleDebug) {
+            applicationId "com.login"
+        }
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        kapt {
+            arguments {
+                //ARouter
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+    buildFeatures {
+        buildConfig true
+        compose true
+    }
+
+    sourceSets {
+        main {
+            if (rootProject.ext.isModuleDebug) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude 'module/**'    //移除module文件夹下的资源,即 module/AndroidManifest.xml
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+
+
+
+    implementation rootProject.ext.depsLibs.appcompat
+    implementation rootProject.ext.depsLibs.material
+    testImplementation rootProject.ext.depsLibs.junit
+    androidTestImplementation rootProject.ext.depsLibs.androidTest
+    androidTestImplementation rootProject.ext.depsLibs.espresso
+    implementation rootProject.ext.depsLibs.activity
+    implementation rootProject.ext.depsLibs.constraintlayout
+
+    api rootProject.ext.depsLibs.core_ktx
+    api rootProject.ext.depsLibs.lifecycle
+    api rootProject.ext.depsLibs.activity_compose
+    api platform('androidx.compose:compose-bom:2024.09.00')
+    api 'androidx.compose.ui:ui'
+    api 'androidx.compose.ui:ui-graphics'
+    api 'androidx.compose.ui:ui-tooling-preview'
+    api 'androidx.compose.material3:material3'
+    androidTestApi platform('androidx.compose:compose-bom:2024.09.00')
+    api 'androidx.compose.ui:ui-test-junit4'
+    api 'androidx.compose.ui:ui-tooling'
+    api 'androidx.compose.ui:ui-test-manifest'
+    api 'com.kunminx.arch:strict-databinding:4.0.0-beta1'
+    implementation project(':module_business_mvp')
+
+    kapt rootProject.ext.depsLibs.arouterCompiler
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Activity转场动画 进入、退出-->
+    <style name="activity_animation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_translate_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_translate_out</item>
+
+    </style>
+
+    <style name="activity_animation_zoom_in_zoom_out" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/zoom_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/zoom_out</item>
+    </style>
+</resources>

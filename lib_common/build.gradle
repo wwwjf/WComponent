@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.common'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+
+    api rootProject.ext.depsLibs.appcompat
+    api rootProject.ext.depsLibs.material
+    api rootProject.ext.depsLibs.constraintlayout
+
+
+    testImplementation rootProject.ext.depsLibs.junit
+    androidTestImplementation rootProject.ext.depsLibs.androidTest
+    androidTestImplementation rootProject.ext.depsLibs.espresso
+    implementation rootProject.ext.depsLibs.toasty
+
+    api(project(':lib_common:common'))
+    api(project(':lib_common:lib_permission'))
+    api(project(':lib_common:lib_dialog'))
+    api(project(':lib_common:lib_customview'))
+
+}

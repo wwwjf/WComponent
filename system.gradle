@@ -1,0 +1,15 @@
+def isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
+def isMacOs = System.getProperty("os.name").toLowerCase().contains("mac")
+def isLinux = System.getProperty("os.name").toLowerCase().contains("linux")
+
+println "OS Name: ${System.getProperty('os.name')}"
+
+if (isWindows) {
+    println "当前操作系统是 Windows"
+} else if (isMacOs) {
+    println "当前操作系统是 macOS"
+} else if (isLinux) {
+    println "当前操作系统是 Linux"
+} else {
+    println "未知操作系统"
+}

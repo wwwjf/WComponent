@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.network.retrofit_rxjava'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+}
+
+dependencies {
+
+    implementation project(":lib_common")
+
+    implementation rootProject.ext.depsLibs.junit
+    implementation rootProject.ext.depsLibs.androidTest
+
+    api rootProject.ext.depsLibs.retrofit
+    implementation rootProject.ext.depsLibs.converter_gson
+    implementation rootProject.ext.depsLibs.logging_interceptor
+    implementation rootProject.ext.depsLibs.rxjava3
+    implementation rootProject.ext.depsLibs.converter_rxjava3
+    implementation rootProject.ext.depsLibs.rxandroid
+}

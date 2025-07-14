@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.compose'
+    id 'kotlin-kapt'
+
+}
+
+android {
+    namespace 'com.base.router'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        buildConfigField("boolean", "isModuleDebug", String.valueOf(rootProject.ext.isModuleDebug))
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME: project.getName() ]
+            }
+        }
+        kapt {
+            arguments {
+                //ARouter
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+
+    //ARouter
+    api rootProject.ext.depsLibs.arouterApi
+    kapt rootProject.ext.depsLibs.arouterCompiler
+
+    api rootProject.ext.depsLibs.material
+
+
+
+}

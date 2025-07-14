@@ -1,0 +1,1 @@
+在需要调用的地方创建INetworkService、NetworkService及相关数据类
