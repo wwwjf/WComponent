@@ -54,6 +54,7 @@ dependencies {
     implementation project(':module_base_router')
     implementation project(':lib_common')
     implementation project(':module_setting:export_setting')
+    implementation project(':module_business_mvvm')
 
     //打包时候才需要
     if (!rootProject.ext.isModuleDebug) {

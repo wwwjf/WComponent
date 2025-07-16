@@ -1,9 +1,9 @@
 package com.wwwjf.wcomponent;
 
-import com.base.router.BaseRouterApplication;
+import com.business.BaseMvvmApplication;
 import com.common.utils.NetworkUtil;
 
-public class CustomApplication extends BaseRouterApplication {
+public class CustomApplication extends BaseMvvmApplication {
 
     @Override
     public void onTerminate() {
