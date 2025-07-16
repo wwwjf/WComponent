@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -9,7 +11,7 @@ android {
     defaultConfig {
         minSdk rootProject.ext.minSdkVersion
 
-//        buildConfigField("boolean", "isModuleDebug", String.valueOf(rootProject.ext.isModuleDebug))
+        buildConfigField("boolean", "isModuleDebug", String.valueOf(rootProject.ext.isModuleDebug))
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -25,24 +27,32 @@ android {
         sourceCompatibility rootProject.ext.javaVersion
         targetCompatibility rootProject.ext.javaVersion
     }
-
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
     buildFeatures {
-
+        buildConfig true
+        dataBinding true
     }
 }
 
 dependencies {
 
+    api rootProject.ext.depsLibs.core_ktx
     api rootProject.ext.depsLibs.appcompat
     api rootProject.ext.depsLibs.material
     testImplementation rootProject.ext.depsLibs.junit
     androidTestImplementation rootProject.ext.depsLibs.androidTest
     androidTestImplementation rootProject.ext.depsLibs.espresso
-    api rootProject.ext.depsLibs.rxjava3
-    api rootProject.ext.depsLibs.swipeRefreshLayout
 
-    api project(':module_base_mvp')
-    api project(':lib_common')
+
     api project(':module_base_router')
-    api project(':lib_network_retrofit_rxjava_two')
+    api project(':module_base_mvvm')
+
+    api rootProject.ext.depsLibs.lifecycle_runtime
+    api rootProject.ext.depsLibs.navigation_runtime
+    api rootProject.ext.depsLibs.unpeek_livedata
+    api rootProject.ext.depsLibs.smooth_navigation
+    api rootProject.ext.depsLibs.strict_databinding
+    api rootProject.ext.depsLibs.vptransforms
 }

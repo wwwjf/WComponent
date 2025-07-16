@@ -1,9 +1,9 @@
 package com.splash
 
-import com.base.router.BaseRouterApplication
+import com.business.BaseMvvmApplication
 import com.common.utils.NetworkUtil
 
-class SplashApplication: BaseRouterApplication() {
+class SplashApplication: BaseMvvmApplication() {
 
     override fun onCreate() {
         super.onCreate()

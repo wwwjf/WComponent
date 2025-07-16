@@ -30,12 +30,13 @@ include ':lib_network_retrofit_rxjava_two'
 
 include ':module_base_router'
 include ':module_base_mvp'
+include ':module_base_mvvm'
 
 include ':module_business_mvp'
+include ':module_business_mvvm'
 
 include ':module_login'
 include ':module_setting'
 include ':module_setting:export_setting'
 include ':module_mine'
 include ':module_splash'
-include ':module_base_mvvm'
