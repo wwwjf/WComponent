@@ -1,31 +1,30 @@
-if (rootProject.ext.isModuleDebug) {
+if (rootProject.ext.isModuleDebug){
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 apply plugin: 'kotlin-kapt'
 
 android {
-    namespace 'com.login'
+    namespace 'com.register'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-//        resourcePrefix "login_"
+//        resourcePrefix "register_"
 
-        if (rootProject.ext.isModuleDebug) {
-            applicationId "com.login"
+        if (rootProject.ext.isModuleDebug){
+            applicationId "com.register"
         }
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-
+        buildConfigField("boolean", "isModuleDebug", String.valueOf(rootProject.ext.isModuleDebug))
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                arguments = [ AROUTER_MODULE_NAME: project.getName() ]
             }
         }
         kapt {
@@ -34,7 +33,9 @@ android {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -50,19 +51,20 @@ android {
     kotlinOptions {
         jvmTarget = rootProject.ext.jvmTargetVersion
     }
+
     buildFeatures {
         buildConfig true
-        compose true
+        dataBinding true
     }
 
     sourceSets {
         main {
-            if (rootProject.ext.isModuleDebug) {
+            if (rootProject.ext.isModuleDebug){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
-                    exclude 'module/**'    //移除module文件夹下的资源,即 module/AndroidManifest.xml
+                    exclude 'module/**'	//移除module文件夹下的资源,即 debug/AndroidManifest.xml
                 }
             }
         }
@@ -70,31 +72,22 @@ android {
 }
 
 dependencies {
+    implementation project(':lib_common')
+    implementation project(':module_base_router')
+    implementation project(':lib_network_retrofit_coroutine')
 
-
-
+    implementation rootProject.ext.depsLibs.core_ktx
     implementation rootProject.ext.depsLibs.appcompat
     implementation rootProject.ext.depsLibs.material
     testImplementation rootProject.ext.depsLibs.junit
+    implementation rootProject.ext.depsLibs.activity_ktx
+    implementation rootProject.ext.depsLibs.fragment_ktx
+    implementation rootProject.ext.depsLibs.lifecycle_ktx
+
     androidTestImplementation rootProject.ext.depsLibs.androidTest
     androidTestImplementation rootProject.ext.depsLibs.espresso
-    implementation rootProject.ext.depsLibs.activity
-    implementation rootProject.ext.depsLibs.constraintlayout
 
-    api rootProject.ext.depsLibs.core_ktx
-    api rootProject.ext.depsLibs.lifecycle_ktx
-    api rootProject.ext.depsLibs.activity_compose
-    api platform('androidx.compose:compose-bom:2024.09.00')
-    api 'androidx.compose.ui:ui'
-    api 'androidx.compose.ui:ui-graphics'
-    api 'androidx.compose.ui:ui-tooling-preview'
-    api 'androidx.compose.material3:material3'
-    androidTestApi platform('androidx.compose:compose-bom:2024.09.00')
-    api 'androidx.compose.ui:ui-test-junit4'
-    api 'androidx.compose.ui:ui-tooling'
-    api 'androidx.compose.ui:ui-test-manifest'
-    api 'com.kunminx.arch:strict-databinding:4.0.0-beta1'
-    implementation project(':module_business_mvp')
 
     kapt rootProject.ext.depsLibs.arouterCompiler
+
 }

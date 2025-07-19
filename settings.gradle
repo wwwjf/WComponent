@@ -18,25 +18,33 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WComponent"
 include ':app'
+
+//=============library通用库======================
 include ':lib_common'
 include ':lib_common:common'
 include ':lib_common:lib_permission'
 include ':lib_common:lib_dialog'
 include ':lib_common:lib_customview'
 
+//=============网络请求相关库======================
 include ':lib_network_retrofit'
 include ':lib_network_retrofit_rxjava'
 include ':lib_network_retrofit_rxjava_two'
+include ':lib_network_retrofit_coroutine'
 
-include ':module_base_router'
-include ':module_base_mvp'
-include ':module_base_mvvm'
+//=============项目架构设计基本模块=================
+include ':module_base_router'//组件化路由（必选）
+include ':module_base_mvp'//可选
+include ':module_base_mvvm'//可选
 
-include ':module_business_mvp'
-include ':module_business_mvvm'
+//=============项目根据具体业务封装的基本模块=========
+include ':module_business_mvp'//可选
+include ':module_business_mvvm'//可选
 
+//=============项目具体业务模块=====================
 include ':module_login'
 include ':module_setting'
 include ':module_setting:export_setting'
 include ':module_mine'
 include ':module_splash'
+include ':module_register'

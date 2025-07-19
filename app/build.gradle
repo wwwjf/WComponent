@@ -62,6 +62,7 @@ dependencies {
         implementation project(':module_setting')
         implementation project(':module_mine')
         implementation project(':module_splash')
+        implementation project(':module_register')
 
     }
     annotationProcessor rootProject.ext.depsLibs.arouterCompiler
