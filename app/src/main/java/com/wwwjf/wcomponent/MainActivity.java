@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonRegister.setOnClickListener(v -> {
             ARouter.getInstance().build(ARouterPath.REGISTER_ACTIVITY).navigation();
         });
+        binding.buttonModuleA.setOnClickListener(v -> {
+            ARouter.getInstance().build(ARouterPath.MODULE_A_ACTIVITY).navigation();
+        });
     }
 
 

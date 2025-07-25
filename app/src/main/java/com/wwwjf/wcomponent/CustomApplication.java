@@ -1,7 +1,9 @@
 package com.wwwjf.wcomponent;
 
+import com.base.mvvm_two.utils.ContextUtil;
 import com.business.BaseMvvmApplication;
 import com.common.utils.NetworkUtil;
+
 
 public class CustomApplication extends BaseMvvmApplication {
 
@@ -14,5 +16,7 @@ public class CustomApplication extends BaseMvvmApplication {
     public void onCreate() {
         super.onCreate();
         NetworkUtil.init(this);
+
+        ContextUtil.Companion.setContext(this);
     }
 }

@@ -67,6 +67,9 @@ project.ext {
             cvbanner                  : "com.bigkoo:convenientbanner:2.0.5",
             refresh_layout_kernel     : "com.scwang.smart:refresh-layout-kernel:2.0.1",
             refresh_header_classics   : "com.scwang.smart:refresh-header-classics:2.0.1",
+            okhttp_profiler           : "com.localebro:okhttpprofiler:1.0.8",//查看http请求响应数据
+            lifecycle_extensions      : "androidx.lifecycle:lifecycle-extensions:2.1.0",
+            eventbus                  : "org.greenrobot:eventbus:3.3.1",
     ]
 
 

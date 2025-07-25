@@ -55,6 +55,6 @@ dependencies {
 
     api rootProject.ext.depsLibs.material
 
-
+    implementation project(":lib_common")
 
 }
