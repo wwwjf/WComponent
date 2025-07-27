@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<title>Web Demo</title>
+    <script>
+        function clickBtn() {
+            console.log("===调用js中的方法clickBtn");
+            JsToAndroid.callAndroid("js调用Android方法");
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <button type="button" id="button1" onclick="clickBtn()">Button 1</button>
+    </div>
+</body>
+</html>

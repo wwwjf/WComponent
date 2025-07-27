@@ -5,39 +5,30 @@
 
     <data>
 
-        <variable
-            name="splashVM"
-            type="com.splash.SplashViewModel" />
-        
-        <variable
-            name="click"
-            type="com.splash.SplashActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SplashActivity">
+        tools:context=".web.WebViewActivity">
 
-        <Button
-            android:id="@+id/buttonMine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{splashVM.title}"
-            onClickWithDebouncing="@{()->click.jumpMine()}"
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Button
-            android:id="@+id/buttonWebView"
+            android:id="@+id/buttonCallJs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="跳转到webview"
-            onClickWithDebouncing="@{()->click.jumpWebView()}"
+            android:text="调用js中方法"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonMine" />
-
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

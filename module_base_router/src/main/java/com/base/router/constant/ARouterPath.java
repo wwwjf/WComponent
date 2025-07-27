@@ -7,5 +7,6 @@ public class ARouterPath {
     public static final String MINE_ACTIVITY = "/mine/mine";
     public static final String SPLASH_ACTIVITY = "/splash/splash_activity";
     public static final String REGISTER_ACTIVITY = "/register/register";
+    public static final String WEB_VIEW_ACTIVITY = "/register1/webview";
     public static final String MODULE_A_ACTIVITY = "/module_a/module_a";
 }

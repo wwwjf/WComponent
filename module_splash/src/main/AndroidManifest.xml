@@ -3,9 +3,11 @@
 
     <application>
         <activity
+            android:name=".web.WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
     </application>
 
 </manifest>

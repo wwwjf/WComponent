@@ -31,5 +31,8 @@ class SplashActivity : BaseActivity() {
         fun jumpMine() {
             ARouter.getInstance().build(ARouterPath.MINE_ACTIVITY).navigation()
         }
+        fun jumpWebView() {
+            ARouter.getInstance().build(ARouterPath.WEB_VIEW_ACTIVITY).navigation()
+        }
     }
 }
