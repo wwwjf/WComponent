@@ -77,6 +77,7 @@ dependencies {
     implementation project(':lib_common')
     implementation project(':lib_network_retrofit')
     implementation project(':module_business_mvvm')
+    implementation project(':lib_common:lib_xpopup')
 
 
     kapt rootProject.ext.depsLibs.arouterCompiler

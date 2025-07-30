@@ -59,6 +59,7 @@ project.ext {
             compose_ui                : "androidx.compose.ui:ui",
             activity_compose          : "androidx.activity:activity-compose:1.9.1",
             lifecycle_runtime         : "androidx.lifecycle:lifecycle-runtime:2.4.0",
+            lifecycle_compiler        : "androidx.lifecycle:lifecycle-compiler:2.6.1",
             navigation_runtime        : "androidx.navigation:navigation-runtime:2.3.5",
             unpeek_livedata           : 'com.kunminx.arch:unpeek-livedata:7.2.0-beta1',
             smooth_navigation         : 'com.kunminx.arch:smooth-navigation:4.0.0-beta1',
@@ -70,6 +71,10 @@ project.ext {
             okhttp_profiler           : "com.localebro:okhttpprofiler:1.0.8",//查看http请求响应数据
             lifecycle_extensions      : "androidx.lifecycle:lifecycle-extensions:2.1.0",
             eventbus                  : "org.greenrobot:eventbus:3.3.1",
+            glide                     : "com.github.bumptech.glide:glide:4.13.1",
+            easyAdapter               : "com.github.li-xiaojun:EasyAdapter:1.2.8",
+            scaleImageAndroidx        : "com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0",
+
     ]
 
 

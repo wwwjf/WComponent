@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_18"
+        android:paddingBottom="@dimen/dp_12"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginEnd="@dimen/dp_6" />
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="@dimen/dp_0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/_xpopup_title_color"
+            android:textSize="@dimen/sp_15" />
+
+        <com.common.xpopup.widget.CheckView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/check_view"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_20"/>
+    </LinearLayout>
+</LinearLayout>

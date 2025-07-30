@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application >
+        <meta-data android:name="android.notch_support" android:value="true"/>
+        <!--PermissionActivity-->
+        <activity android:name=".util.XPermission$PermissionActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

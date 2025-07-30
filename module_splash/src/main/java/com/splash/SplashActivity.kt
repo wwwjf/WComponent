@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.base.router.constant.ARouterPath
 import com.business.mvvm.BaseActivity
 import com.kunminx.architecture.ui.page.DataBindingConfig
+import com.common.xpopup.XPopup
 import com.splash.common.SharedViewModel
 
 @Route(path = ARouterPath.SPLASH_ACTIVITY)
@@ -25,6 +26,9 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        XPopup.Builder(this)
+            .asLoading()
+            .show()
     }
 
     class ClickProxy {
@@ -33,6 +37,7 @@ class SplashActivity : BaseActivity() {
         }
         fun jumpWebView() {
             ARouter.getInstance().build(ARouterPath.WEB_VIEW_ACTIVITY).navigation()
+
         }
     }
 }
