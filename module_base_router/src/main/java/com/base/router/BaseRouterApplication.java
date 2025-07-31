@@ -4,15 +4,12 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.common.log.KLog;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.common.application.IApplicationInit;
 
 /**
  * 单独运行调试模式的启动类
  */
-public class BaseRouterApplication extends Application {
+public class BaseRouterApplication extends Application implements IApplicationInit {
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -28,5 +25,15 @@ public class BaseRouterApplication extends Application {
             ARouter.openDebug();
         }
         ARouter.init(this);
+    }
+
+    @Override
+    public boolean onInitHighPriority(Application application) {
+        return true;
+    }
+
+    @Override
+    public boolean onInitLowPriority(Application application) {
+        return true;
     }
 }

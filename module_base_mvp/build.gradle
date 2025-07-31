@@ -38,4 +38,6 @@ dependencies {
     testImplementation rootProject.ext.depsLibs.junit
     androidTestImplementation rootProject.ext.depsLibs.androidTest
     androidTestImplementation rootProject.ext.depsLibs.espresso
+
+    implementation project(':module_base_router')
 }

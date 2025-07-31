@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".web.WebViewActivity"
             android:exported="true"/>
     </application>
 

@@ -42,7 +42,6 @@ public class MineActivity extends BaseActivity implements IMineContract.IView {
 
     @Override
     public void onCreateBaseActivity(@Nullable Bundle savedInstanceState) {
-        ARouter.getInstance().inject(this);
         this.dismissLoading();
         mMinePresenter = new MinePresenter(this);
         initData();

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.base.router.BaseRouterActivity;
 import com.base.router.constant.ARouterPath;
 import com.network.retrofit.OnRequestListener;
 import com.setting.api.NetworkServiceManagerSetting;
@@ -13,14 +14,13 @@ import com.setting.api.data.MovieSettingBean;
 import com.setting.export_setting.constant.ARouterPathSetting;
 
 @Route(path = ARouterPathSetting.SETTING_ACTIVITY)
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseRouterActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_setting);
-        ARouter.getInstance().inject(this);
 
         findViewById(R.id.buttonMain).setOnClickListener(v -> {
             ARouter.getInstance().build(ARouterPath.MAIN_ACTIVITY).navigation();

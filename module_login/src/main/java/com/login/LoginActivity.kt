@@ -12,14 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.base.router.BaseRouterActivity
 import com.base.router.constant.ARouterPath
 import com.login.ui.theme.WComponentTheme
 
 @Route(path = ARouterPath.LOGIN_ACTIVITY)
-class LoginActivity : ComponentActivity() {
+class LoginActivity : BaseRouterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ARouter.getInstance().inject(this)
 //        enableEdgeToEdge()
         setContent {
             WComponentTheme {

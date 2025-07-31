@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.base.router.BaseRouterActivity;
 import com.base.router.constant.ARouterPath;
 import com.common.log.KLog;
 import com.setting.export_setting.constant.ARouterPathSetting;
@@ -14,7 +15,7 @@ import com.wwwjf.wcomponent.databinding.ActivityMainBinding;
 import kotlin.coroutines.jvm.internal.RunSuspendKt;
 
 @Route(path = ARouterPath.MAIN_ACTIVITY)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseRouterActivity {
     private ActivityMainBinding binding;
     public static final String TAG = "MainActivity";
 
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         //viewbinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ARouter.getInstance().inject(this);
 
         binding.buttonSetting.setOnClickListener(v -> {
             ARouter.getInstance().build(ARouterPathSetting.SETTING_ACTIVITY).navigation();

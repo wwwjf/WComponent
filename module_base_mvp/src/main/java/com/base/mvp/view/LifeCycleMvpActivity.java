@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.base.mvp.presenter.MvpController;
+import com.base.router.BaseRouterActivity;
 
-public class LifeCycleMvpActivity extends AppCompatActivity implements IMvpView {
+public class LifeCycleMvpActivity extends BaseRouterActivity implements IMvpView {
 
     private MvpController mvpController;
 
