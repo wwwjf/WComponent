@@ -1,10 +1,9 @@
 package com.wwwjf.wcomponent;
 
 import com.business.BaseMvvmApplication;
-import com.common.application.IApplicationInit;
-import com.common.application.ModuleConfig;
+import com.base.router.application.IApplicationInit;
+import com.base.router.application.ModuleConfig;
 import com.common.log.KLog;
-import com.common.utils.NetworkUtil;
 
 
 public class CustomApplication extends BaseMvvmApplication {

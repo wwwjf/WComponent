@@ -1,4 +1,4 @@
-package com.common.application;
+package com.base.router.application;
 
 public class ModuleConfig {
 

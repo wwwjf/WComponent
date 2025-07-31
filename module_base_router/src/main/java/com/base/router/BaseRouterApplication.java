@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.common.application.IApplicationInit;
+import com.base.router.application.IApplicationInit;
 
 /**
  * 单独运行调试模式的启动类
