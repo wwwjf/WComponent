@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.common.protobuf.proto;
+
+enum SettingType {
+    SETTING_TYPE_UNSPECIFIED = 0;
+    SETTING_TYPE_BOOLEAN = 1;
+    SETTING_TYPE_STRING = 2;
+    SETTING_TYPE_INTEGER = 3;
+    SETTING_TYPE_FLOAT = 4;
+}
+
+message Student {
+    string name = 1;
+    int32 age = 2;
+}

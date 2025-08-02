@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.common.datastore'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+}
+
+dependencies {
+
+    implementation rootProject.ext.depsLibs.appcompat
+    implementation rootProject.ext.depsLibs.material
+    testImplementation rootProject.ext.depsLibs.junit
+    androidTestImplementation rootProject.ext.depsLibs.androidTest
+    androidTestImplementation rootProject.ext.depsLibs.espresso
+
+    api rootProject.ext.depsLibs.datastore_preferences
+
+    api project(':lib_common:lib_protobuf')
+
+
+}

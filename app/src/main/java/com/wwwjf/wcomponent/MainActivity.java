@@ -1,18 +1,13 @@
 package com.wwwjf.wcomponent;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.base.router.BaseRouterActivity;
 import com.base.router.constant.ARouterPath;
-import com.common.log.KLog;
 import com.setting.export_setting.constant.ARouterPathSetting;
 import com.wwwjf.wcomponent.databinding.ActivityMainBinding;
-
-import kotlin.coroutines.jvm.internal.RunSuspendKt;
 
 @Route(path = ARouterPath.MAIN_ACTIVITY)
 public class MainActivity extends BaseRouterActivity {

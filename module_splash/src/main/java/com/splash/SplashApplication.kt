@@ -2,6 +2,7 @@ package com.splash
 
 import android.app.Application
 import com.business.BaseMvvmApplication
+import com.common.datastore.DatastoreManager
 import com.common.log.KLog
 import com.common.utils.NetworkUtil
 

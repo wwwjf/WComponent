@@ -8,7 +8,7 @@
         <variable
             name="splashVM"
             type="com.splash.SplashViewModel" />
-        
+
         <variable
             name="click"
             type="com.splash.SplashActivity.ClickProxy" />
@@ -22,22 +22,42 @@
 
         <Button
             android:id="@+id/buttonMine"
+            onClickWithDebouncing="@{()->click.jumpMine()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{splashVM.title}"
-            onClickWithDebouncing="@{()->click.jumpMine()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/buttonWebView"
+            onClickWithDebouncing="@{()->click.jumpWebView()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="跳转到webview"
-            onClickWithDebouncing="@{()->click.jumpWebView()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonMine" />
 
+        <Button
+            android:id="@+id/buttonDatastore"
+            onClickWithDebouncing="@{()->splashVM.getDataStoreFile()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取datastore数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonWebView" />
+
+        <Button
+            android:id="@+id/buttonProtobuf"
+            onClickWithDebouncing="@{()->splashVM.getDataStoreProtobufFile()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取datastoreProtobuf数据"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDatastore" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

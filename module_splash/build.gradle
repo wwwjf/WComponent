@@ -79,9 +79,14 @@ dependencies {
     implementation project(':module_business_mvvm')
     implementation project(':lib_common:lib_xpopup')
 
+    implementation project(':lib_common:lib_datastore')
 
     kapt rootProject.ext.depsLibs.arouterCompiler
     implementation rootProject.ext.depsLibs.rxandroid
     implementation rootProject.ext.depsLibs.rxjava3
 
+
+    implementation rootProject.ext.depsLibs.activity_ktx
+    implementation rootProject.ext.depsLibs.fragment_ktx
+    implementation rootProject.ext.depsLibs.lifecycle_ktx
 }

@@ -55,11 +55,11 @@ dependencies {
     implementation project(':lib_common')
     implementation project(':module_business_mvvm')
 
+    implementation project(':module_setting:export_setting')
     //打包时候才需要
     if (!rootProject.ext.isModuleDebug) {
         implementation project(':module_login')
         implementation project(':module_setting')
-        implementation project(':module_setting:export_setting')
         implementation project(':module_mine')
         implementation project(':module_splash')
         implementation project(':module_register')
@@ -68,4 +68,6 @@ dependencies {
     }
     annotationProcessor rootProject.ext.depsLibs.arouterCompiler
     implementation rootProject.ext.depsLibs.appcompat
+
+    implementation project(':lib_common:lib_datastore')
 }

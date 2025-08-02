@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.protobuf' version "0.9.1"
+}
+
+android {
+    namespace 'com.common.protobuf'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = rootProject.ext.jvmTargetVersion
+    }
+
+    sourceSets {
+        main {
+            proto {
+                srcDir 'src/main/proto' // 指定.proto文件的位置
+            }
+        }
+    }
+}
+
+
+dependencies {
+
+    implementation rootProject.ext.depsLibs.appcompat
+    implementation rootProject.ext.depsLibs.material
+    testImplementation rootProject.ext.depsLibs.junit
+    androidTestImplementation rootProject.ext.depsLibs.androidTest
+    androidTestImplementation rootProject.ext.depsLibs.espresso
+
+    //Protobuf
+    api rootProject.ext.depsLibs.protobuf_java
+    api rootProject.ext.depsLibs.protobuf_protoc
+
+}
+protobuf {
+    protoc {
+        if (osdetector.os == "osx") {
+            artifact = 'com.google.protobuf:protoc:3.21.7:osx-x86_64'
+        } else {
+            artifact = 'com.google.protobuf:protoc:3.21.7'
+        }
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.builtins {
+                java {}
+            }
+        }
+    }
+    //生成目录
+//    generatedFilesBaseDir = "$projectDir/src/generated/"
+}
