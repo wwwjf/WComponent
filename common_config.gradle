@@ -2,7 +2,7 @@ apply from: 'system.gradle'
 project.ext {
 
     //是否允许module单独调试
-    isModuleDebug = false
+    isModuleDebug = true
 
     // 应用基本信息
     appName = "组件化开发"
@@ -89,7 +89,10 @@ project.ext {
             protobuf_java                : "com.google.protobuf:protobuf-java:4.31.0",
             protobuf_kotlin              : "com.google.protobuf:protobuf-kotlin:4.31.0",
             protobuf_java_util           : "com.google.protobuf:protobuf-java-util:4.31.0",
-            protobuf_protoc            : "com.google.protobuf:protoc:3.21.7",
+            protobuf_protoc              : "com.google.protobuf:protoc:3.21.7",
+            //hilt
+            hilt_android                 : "com.google.dagger:hilt-android:2.56.2",
+            hilt_android_compiler        : "com.google.dagger:hilt-compiler:2.56.2",
     ]
 
 
